@@ -37,7 +37,9 @@ public class Main {
             return;
         }
 
-        BufferedReader inputReader = new BufferedReader(new InputStreamReader(System.in));
+        client1.startChat(2, 1, System.in);
+
+        /* BufferedReader inputReader = new BufferedReader(new InputStreamReader(System.in));
         while(client2.isConnected()) {
             try {
                 if(inputReader.ready()) {
@@ -58,6 +60,7 @@ public class Main {
                 System.out.println("Could not read input: " + e.getMessage());
             }
         }
+        */
         System.out.println("Chat ended");
     }
 }

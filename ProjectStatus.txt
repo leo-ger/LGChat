@@ -4,3 +4,8 @@ Day 1:
 Created the project. Implemented a simple chat functionality with a server which saves all connected Clients, gives
 them a unique UID and forwards messages sent from a client to another one with a given UID. Also sets sender-UID to
 the client who sent the message. I didn't look into encryption for now, but will in a short while.
+
+Day 2:
+Created new EncryptionService class. Is capable of generating RSA-keypairs and en-/decrypting messages with RSA-Keys.
+Also ported the main chat-functionality from the Main class to a function in Client. Next step is to change the protocol
+to allow public-key-transmitting and/or a save capability in the Server?
