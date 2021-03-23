@@ -5,6 +5,10 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
+/*
+PROTOCOL-SYNTAX IS: 4 bytes recipient, 4 bytes sender, ... bytes data
+ */
+
 public class Main {
     public static void main(String[] args) {
         Thread thread1 = new Thread(() -> { Server server = new Server(4567, 10);
@@ -34,7 +38,7 @@ public class Main {
         }
 
         BufferedReader inputReader = new BufferedReader(new InputStreamReader(System.in));
-        while(client1.isConnected()) {
+        while(client2.isConnected()) {
             try {
                 if(inputReader.ready()) {
                     String message = inputReader.readLine();
@@ -43,7 +47,7 @@ public class Main {
                     }
                     else {
                         try {
-                            client1.send(2, 1, message);
+                            client2.send(1, 3, message);
                         } catch (IOException e) {
                             System.err.println(e.getMessage());
                             e.getCause().printStackTrace();

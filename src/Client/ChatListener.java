@@ -21,7 +21,6 @@ public class ChatListener implements Runnable {
 
     @Override
     public void run() {
-        // TODO: listen continuosly for incoming messages and print them on to 'output'
         while(true) {
                 try {
                     if (in.available() > 0) {
@@ -43,8 +42,5 @@ public class ChatListener implements Runnable {
                     System.out.println(err);
                 }
         }
-        // You can use the method readLine() in BufferedReader that blocks for input and returns a whole line that can be printed directly
-        // readLine() returns null if the underlying stream has been closed and throws a SocketException when the connection has reset
-        //      Use this to set 'connected' to false and end the run()-method when the connection has failed
     }
 }

@@ -83,6 +83,11 @@ public class Server {
         while(true) {
             if(in.available()>0) {
                 byte[] input = in.readNBytes(in.available());
+                byte[] ownUID = ByteBuffer.allocate(4).putInt(client.getUid()).array();
+                for(int j=0; j<4; j++) {
+                    input[j+4] = ownUID[j];
+                }
+
                 byte[] b_uid = new byte[4];
                 for(int i=0; i<4; i++) {
                     b_uid[i] = input[i];
