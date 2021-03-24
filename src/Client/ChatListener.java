@@ -2,6 +2,7 @@ package Client;
 
 import java.io.*;
 import java.nio.ByteBuffer;
+import java.util.Map;
 
 public class ChatListener implements Runnable {
 
@@ -25,18 +26,10 @@ public class ChatListener implements Runnable {
                 try {
                     if (in.available() > 0) {
                         byte[] input = in.readNBytes(in.available());
-                        byte[] sender = new byte[4];
-                        for (int i = 4; i < 8; i++) {
-                            sender[i - 4] = input[i];
-                        }
-                        int sender_uid = ByteBuffer.wrap(sender).getInt();
-
-                        byte[] data = new byte[input.length - 8];
-                        for (int j = 8; j < input.length; j++) {
-                            data[j - 8] = input[j];
-                        }
-                        String string = new String(data);
-                        output.println(sender_uid + ": " + string);
+                        Map<String, byte[]> inputMap = ProtocolInterpreter.interprete(input);
+                        int senderUID = ByteBuffer.wrap(inputMap.get("sender")).getInt();
+                        String dataString = new String(inputMap.get("data"));
+                        output.println(senderUID + ": " + dataString);
                     }
                 } catch(Exception err){
                     System.out.println(err);
