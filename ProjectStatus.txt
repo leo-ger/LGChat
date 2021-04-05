@@ -10,4 +10,4 @@ Created new EncryptionService class. Is capable of generating RSA-keypairs and e
 Also ported the main chat-functionality from the Main class to a function in Client. Next step is to change the protocol
 to allow public-key-transmitting and/or a save capability in the Server?
 
-12345
+123456
