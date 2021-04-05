@@ -9,3 +9,5 @@ Day 2:
 Created new EncryptionService class. Is capable of generating RSA-keypairs and en-/decrypting messages with RSA-Keys.
 Also ported the main chat-functionality from the Main class to a function in Client. Next step is to change the protocol
 to allow public-key-transmitting and/or a save capability in the Server?
+
+1234
